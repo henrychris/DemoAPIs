@@ -16,13 +16,14 @@
 			"type": "node",
             "request": "launch",
             "name": "Launch Program with Nodemon",
+			"preLaunchTask": "tsc: build",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
             "runtimeArgs": [
                 "--watch",
                 "${workspaceFolder}/src",
                 "--exec",
-                "ts-node",
-                "${workspaceFolder}/src/index.ts"
+                "node",
+                "${workspaceFolder}/dist/index.js"
             ],
             "console": "integratedTerminal"
 		}

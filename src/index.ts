@@ -2,6 +2,9 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import express from 'express';
 
+// import the endpoint routes file
+import { router } from './routes/routes';
+
 // get enviroment variables defined in .env
 dotenv.config();
 
@@ -28,3 +31,7 @@ app.use(express.json());
 app.listen(PORT, () => {
 	console.log(`Server started at port ${PORT}.`)
 });
+
+// specify a base route for endpoints, and
+// a routing file to use
+app.use('/api', router);
