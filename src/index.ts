@@ -3,9 +3,10 @@ import mongoose from 'mongoose';
 import express from 'express';
 
 const PORT = 3000;
-
-dotenv.config();
 const mongoConnString = process.env.DATABASE_URL;
+
+// get enviroment variables defined in .env
+dotenv.config();
 
 const app = express();
 app.use(express.json());
