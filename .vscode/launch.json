@@ -14,18 +14,20 @@
 		},
 		{
 			"type": "node",
-            "request": "launch",
-            "name": "Launch Program with Nodemon",
+			"request": "launch",
+			"name": "Launch Program with Nodemon",
 			"preLaunchTask": "tsc: build",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
-            "runtimeArgs": [
-                "--watch",
-                "${workspaceFolder}/src",
-                "--exec",
-                "node",
-                "${workspaceFolder}/dist/index.js"
-            ],
-            "console": "integratedTerminal"
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+			"runtimeArgs": [
+				"--watch",
+				"${workspaceFolder}/src",
+				"--ext",
+				"ts",
+				"--exec",
+				"node",
+				"${workspaceFolder}/dist/index.js"
+			],
+			"console": "integratedTerminal"
 		}
 	]
 }
