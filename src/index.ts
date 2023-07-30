@@ -10,20 +10,7 @@ dotenv.config();
 
 const PORT = 3000;
 const mongoConnString = process.env.DATABASE_URL;
-
-mongoose.connect(mongoConnString);
-const database = mongoose.connection;
-
-// listen for errors during db connection
-database.on('error', (error) => {
-	console.log(error);
-});
-
-// checks that connection succeeded
-database.once('connected', () => {
-	console.log("Connection Successful.");
-});
-
+connectToDB();
 
 const app = express();
 app.use(express.json());
@@ -35,3 +22,18 @@ app.listen(PORT, () => {
 // specify a base route for endpoints, and
 // a routing file to use
 app.use('/api', router);
+
+function connectToDB() {
+	mongoose.connect(mongoConnString);
+	const database = mongoose.connection;
+
+	// listen for errors during db connection
+	database.on('error', (error) => {
+		console.log(error);
+	});
+
+	// checks that connection succeeded
+	database.once('connected', () => {
+		console.log("Connection Successful.");
+	});
+}
